@@ -38,7 +38,13 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Print GitHub event action
         run: |
-          echo "${{ env.GITHUB_EVENT_NAME }}"
+          echo "${{ github.event.pull_request }}"
+      - name: Print GitHub event action
+        run: |
+          echo "${{ github.event.push }}"
+      - name: Print GitHub event action
+        run: |
+          echo "${{ github.event }}"
       - name: Set FLOW_TYPE to pull-request
         if: github.event == 'pull_request'
         run: echo "FLOW_TYPE=pull-request" >> $GITHUB_ENV
