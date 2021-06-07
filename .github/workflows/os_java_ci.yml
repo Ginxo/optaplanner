@@ -39,20 +39,11 @@ jobs:
       - name: Print GitHub event action
         run: |
           echo "${{ github.event_name }}"
-      - name: Print GitHub event action
-        run: |
-          echo "${{ github.event.ref_type }}"
-      - name: Print GitHub event action
-        run: |
-          echo "${{ github.type }}"
-      - name: Print GitHub event action
-        run: |
-          echo "${{ github.event.type }}"
       - name: Set FLOW_TYPE to pull-request
-        if: github.event == 'pull_request'
+        if: github.event_name == 'pull_request'
         run: echo "FLOW_TYPE=pull-request" >> $GITHUB_ENV
       - name: Set FLOW_TYPE to branch
-        if: github.event == 'push'
+        if: github.event_name == 'push'
         run: echo "FLOW_TYPE=branch" >> $GITHUB_ENV
       - name: Build Chain ${{ matrix.java-version }}
         id: build-chain
