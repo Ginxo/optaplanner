@@ -52,7 +52,7 @@ jobs:
         id: build-chain
         uses: kiegroup/github-action-build-chain@feature/branch_flow
         with:
-          definition-file: https://raw.githubusercontent.com/Ginxo/kogito-pipelines/fix/branch_flow/.ci/pull-request-config.yaml
+          definition-file: https://raw.githubusercontent.com/Ginxo/kogito-pipelines/fix/branch_flow2/.ci/pull-request-config.yaml
           starting-project: kiegroup/optaplanner
           flow-type: ${{ env.FLOW_TYPE }}
       - name: Check Surefire Report
